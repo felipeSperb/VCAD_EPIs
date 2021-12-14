@@ -1,0 +1,1 @@
+Nesta pasta serão armazenadas as amostras negativas, ou seja, onde não houve nenhuma detecção.
