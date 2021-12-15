@@ -102,15 +102,15 @@ myIconesNeutro = [
 hist_path = "Arquivos/Imagens_Registradas"
 
 # Abrir e ler arquivos de classes de objetos
-classesFile = 'epi.names'
+classesFile = 'YOLOv4/epi.names'
 classNames = []
 with open(classesFile, 'rt') as f:
     classNames = f.read().rstrip('\n').split('\n')
 
 # Arquivo com arquitetura YOLOv4 modificada
-modelConfiguration = "yolov4-epi.cfg"
+modelConfiguration = "YOLOv4/yolov4-epi.cfg"
 # Arquivo de pesos treinados
-modelWeights = "yolov4-epi360_3200.weights"
+modelWeights = "YOLOv4/yolov4-epi360_3200.weights"
 
 
 # ------------ CONFIGURAÇÃO DE BACKEND ------------ #
@@ -157,8 +157,8 @@ cap = cv2.VideoCapture(0)
 
 '''
 Função de detecção de objetos:
-    Recebe o frame a ser analisado, realiza as operações precistas pela CNN, realiza as detecções levando em 
-    consideração os índices de confiança minima e de limite de IOU, salva o frame junto de arquivo .txt com as 
+    Recebe o frame a ser analisado, realiza as operações previstas pela CNN, realiza as detecções levando em 
+    consideração os índices de confiança mínima e de limite de IOU, salva o frame junto de arquivo .txt com as 
     coordenadas da detecção, compara as coordenadas espaciais da detecção com a zona de interesse do corpo,
     desenha as caixas delimitadoras dos objetos na imagem e realiza a tomada de decisão. 
 '''
@@ -338,10 +338,11 @@ def encontrarEPI(frame):
                     lblPerIcone5.configure(text=f'{int(confs[i] * 100)}%')
                     pos[5] = 1
             elif classIds[i]==6 and chBota == 1:
-                lblIcone6.configure(image=img2)
-                lblIcone6.image = img2
-                lblPerIcone6.configure(text=f'{int(confs[i] * 100)}%')
-                pos[6] = 1
+                if compBotaDir != 0 and compBotaEsq != 0:
+                    lblIcone6.configure(image=img2)
+                    lblIcone6.image = img2
+                    lblPerIcone6.configure(text=f'{int(confs[i] * 100)}%')
+                    pos[6] = 1
 
         # Fechar arquivo
         arquivo.close()
@@ -411,7 +412,7 @@ def encontrarEPI(frame):
 
 '''
 Função de Estimativa de Postura Humana:
-    Detecta a presença e uma pessoa e realiza a estimatica de postura.
+    Detecta a presença e uma pessoa e realiza a estimativa de postura.
     A detecção será realizada somente na pessoa mais bem posicionada na imagem.
     Se a pessoa permanecer na postura de inspeção por 3 segundos, o frame será enviado para CNN.
     O menu é restaurado após 30 segundos da última detecção.
@@ -509,7 +510,7 @@ def visualizar():
 
 
 '''
-Restaura o menu para as configurações padrão
+Restaura o menu para a configuração padrão
 '''
 def restauraMenu():
     global chMascara
@@ -724,7 +725,7 @@ def openConfig():
 
 # Iniciar janela principal
 janelaPrincipal = Tk()
-janelaPrincipal.title("VCAD_EPI (Visão Computacional Aplicada na Detecção de Equipamentos de Proteção Individual)")
+janelaPrincipal.title("VCAD_EPIs (Visão Computacional Aplicada na Detecção de Equipamentos de Proteção Individual)")
 janelaPrincipal.state('zoomed')
 
 # Posição do video na janela principal
@@ -757,12 +758,12 @@ icon0 = PhotoImage(file=myIcones[0])
 lblIcone0 = Label(janelaPrincipal, image=icon0, width=70)
 lblIcone0.grid(column=8, row=13, rowspan=3)
 
-# Icone referente ao capacete
+# Ícone referente ao capacete
 icon1 = PhotoImage(file=myIcones[1])
 lblIcone1 = Label(janelaPrincipal, image=icon1, width=70)
 lblIcone1.grid(column=9, row=13, rowspan=3)
 
-# Icone referente ao óculos
+# Ícone referente aos óculos
 icon2 = PhotoImage(file=myIcones[2])
 lblIcone2 = Label(janelaPrincipal, image=icon2, width=70)
 lblIcone2.grid(column=10, row=13, rowspan=3)

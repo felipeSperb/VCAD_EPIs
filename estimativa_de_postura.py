@@ -61,6 +61,7 @@ class poseDetector():
         self.pose = self.mpPose.Pose(self.mode, self.complexity, self.detectionCon, self.trackCon)
 
 
+    # Função de estimativa de postura
     def findPose(self, img, draw=True):
         # Converte imagem para RGB
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -73,6 +74,7 @@ class poseDetector():
         return img
 
 
+    # Função que cria lista com as coordenadas dos pontos detectados
     def findPosition(self, img, draw=True):
         # Lista os pontos detectados
         self.lmList = []
@@ -90,6 +92,7 @@ class poseDetector():
         return self.lmList
 
 
+    # Função usada para definir postura de inspeção
     def findAngle(self, img, p1, p2, p3, draw=False):
 
         # define as coordenadas dos landmarks recebidos
@@ -114,6 +117,7 @@ class poseDetector():
         return angle
 
 
+    # Função que realiza a comparação com regiões de interesse
     def comparar(self, img, x, y, w, h, classIds):
 
         # Se máscara:

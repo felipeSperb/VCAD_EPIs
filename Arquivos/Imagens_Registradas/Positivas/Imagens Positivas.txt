@@ -1,1 +1,1 @@
-Nesta pasta serão armazenadas as amostras positivas, ou seja, onde não houve pelo menos uma detecção.
+Nesta pasta serão armazenadas as amostras positivas, ou seja, onde houve pelo menos uma detecção.
