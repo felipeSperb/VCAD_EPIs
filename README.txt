@@ -1,6 +1,7 @@
-Vis„o computacional aplicada na detecÁ„o de equipamentos de proteÁ„o individual.
-Este È um projeto acadÍmico com o objetivo de detectar EPIs que est„o sendo vestidos por uma pessoa em uma cena. 
+Eu ainda preciso organizar melhor as coisas por aqui, ent√£o sugiro ler o "PDF - Vis√£o Computacional Aplicada na Detec√ß√£o de Equipamentos de Prote√ß√£o Individual" (artigo n√£o publicado) ou ver um v√≠deo dos primeiros testes aqui: https://www.youtube.com/watch?v=BBgDAaMH-2I&t=5s
+
+Este √© um projeto acad√™mico com o objetivo de detectar EPIs que est√£o sendo vestidos por uma pessoa em uma cena. 
 O programa foi desenvolvido em Python 3.
 Para tratamento de imagens foi utilizado OpenCV.
-A detecÁ„o de objetos È realizada com opencv-dnn e YOLOv4.
-… utilizado estimativa de postura com MediaPipe para comparar as coordenadas das detecÁıes com as regiıes de interesse.
+A detec√ß√£o de objetos √© realizada com opencv-dnn e YOLOv4.
+√â utilizado estimativa de postura com MediaPipe para comparar as coordenadas das detec√ß√µes com as regi√µes de interesse.
